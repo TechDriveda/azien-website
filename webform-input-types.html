@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Template with all input types -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webform input types</title>
+    <h1>Webform Input Types</h1>
+</head>
+
+<body>
+    <form>
+        <!-- Textual -->
+        Name: <input type="text"><br><br>
+        Email: <input type="email"><br><br>
+        Website: <input type="url"><br><br>
+        Phone: <input type="tel"><br><br>
+        Password: <input type="password"><br><br>
+
+        <!-- Numeric -->
+        Age: <input type="number" min="0" max="100"><br><br>
+        Rating: <input type="range" min="1" max="10"><br><br>
+
+        <!-- Date & Time -->
+        Birthday: <input type="date"><br><br>
+        Meeting Time: <input type="time"><br><br>
+        Full Appointment: <input type="datetime-local"><br><br>
+        Billing Month: <input type="month"><br><br>
+        Project Week: <input type="week"><br><br>
+
+        <!-- Choice -->
+        <!-- Radio button-->
+        Favorite Color: <input type="color"><br><br>
+        Gender:
+        <input type="radio" name="gender" value="M"> Male
+        <input type="radio" name="gender" value="F"> Female<br><br>
+        
+        <!-- checkbox -->
+        Interests:
+        <input type="checkbox" name="sports"> Sports
+        <input type="checkbox" name="music"> Music<br><br>
+
+        <!-- File & Hidden -->
+        Upload Document: <input type="file"><br><br>
+        <input type="hidden" name="sessionID" value="123">
+
+        <!-- Buttons -->
+        <input type="submit" value="Submit"><br><br>
+        <input type="reset" value="Reset"><br><br>
+        <input type="button" value="Click Me" onclick="alert('Hello!')"><br><br>
+    </form>
+</body>
+</html>
