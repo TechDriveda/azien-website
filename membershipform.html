@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Form</title>  
+  <link rel="stylesheet" href="formstyle.css">
+</head>
+
+<body>
+  <h2>Membership Form</h2>
+
+  <form id="membershipform" method="post" action="">
+    <!-- Name: <input type="text"> -->
+    <div class="field">
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" pattern="^[A-Za-z][A-Za-z\s\-]{1,39}$"
+        title="Only letters, spaces, and hyphens. Must start with a letter." required autocomplete="given-name">
+    </div>
+
+    <div class="field">
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname" pattern="^[A-Za-z][A-Za-z\s\-]{1,39}$"
+        title="Only letters, spaces, and hyphens. Must start with a letter." required autocomplete="last-name">
+    </div>
+
+
+    <!-- Email: <input type="email"> -->
+    <div class="field">
+      <label for="email">E-mail Address:</label>
+      <input type="email" id="email" name="email" title="Only valid email address." required autocomplete="email">
+    </div>
+
+    <!-- Phone: <input type="tel"><br><br> -->
+    <div class="field">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" pattern="^[0-9\s\-\+\(\)]{4,20}$" title="Only valid phone number."
+        required autocomplete="phone">
+    </div>
+
+    <!-- Member Type -->
+    <div class="field">
+      <label for="membertype">Membership Type:</label>
+      <select id="membertype" name="membertype" required>
+        <option value="">-- Select Type --</option>
+        <option value="access">Access Member (Rent Cars)</option>
+        <option value="asset">Asset Owner (Provide Cars)</option>
+        <option value="asset">Dealer (Provide Cars)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="tier">Membership Tier:</label>
+      <select id="tier" name="tier" required>
+        <option value="">-- Select Tier --</option>
+        <option value="basic">Basic</option>
+        <option value="plus">Plus</option>
+        <option value="premium">Premium</option>
+      </select>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
