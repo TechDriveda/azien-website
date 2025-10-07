@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Profit Calculator</title>
+
+    <!-- NAVBAR -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-50">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-5" href="#">
+                    <!-- Optional logo -->
+                    <!-- <img src="images/logo.png" alt="Azien" height="28"> -->
+                    <img src="azian-logo.png" alt="Azien" height="28">
+                    Azien Luxury Club
+                    <img src="logo-word.svg" alt="Azien" height="28">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!--li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+
+                        <li class="nav-item"><a class="nav-link" href="#fleet">Fleet</a></li>
+                        <li class="nav-item"><a class="nav-link" href="membershipform.html">Membership Form</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profitcalculator.html">Profit
+                                Calculator</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                    <a class="btn btn-primary ms-lg-3" href="/apply">Join Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<body class="bg-white" style="
+  min-height:100vh;
+  background: url('Azien-Luxury-Club-P1.png') center / cover no-repeat #0b0f16;
+">
+
+    <!-- body class="bg-light" -->
+    <main class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <!-- Controls total form width -->
+            <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6">
+                <h1 class="text-center bg-primary-subtle py-3 mb-4 rounded-3 shadow-sm">
+                    Profit Calculator
+                </h1>
+
+                <form id="membershipForm" class="p-4 border rounded-3 bg-info-subtle shadow-sm needs-validation"
+                    novalidate>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10">
+
+                            <!-- Vehicle & Rental -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Vehicle &amp; Rental</legend>
+
+                                <!-- Car name / model -->
+                                <div class="mb-3">
+                                    <label for="carName" class="form-label fw-semibold">
+                                        Car name / model <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="carName" name="carName"
+                                        placeholder="Mercedes-AMG G63" required>
+                                    <div class="invalid-feedback">Please enter a car name or model.</div>
+                                </div>
+
+                                <!-- Initial asset cost (NGN) -->
+                                <div class="mb-3">
+                                    <label for="initialAssetCostNgn" class="form-label fw-semibold">
+                                        Initial asset cost (NGN) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text">₦</span>
+                                        <input type="number" class="form-control" id="initialAssetCostNgn"
+                                            name="initialAssetCostNgn" min="0" step="1000" inputmode="decimal"
+                                            placeholder="10000000" required>
+                                    </div>
+                                    <div class="invalid-feedback">Please enter a valid amount (≥ 0).</div>
+                                </div>
+
+                                <!-- Daily rental rate (NGN / day) -->
+                                <div class="mb-3">
+                                    <label for="dailyRentalRateNgn" class="form-label fw-semibold">
+                                        Daily rental rate (NGN / day) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text">₦</span>
+                                        <input type="number" class="form-control" id="dailyRentalRateNgn"
+                                            name="dailyRentalRateNgn" min="0" step="1000" inputmode="decimal"
+                                            placeholder="250000" required>
+                                        <span class="input-group-text">/day</span>
+                                    </div>
+                                    <div class="invalid-feedback">Please enter a valid daily rate (≥ 0).</div>
+                                </div>
+
+                                <!-- Days rented per month -->
+                                <div class="mb-3">
+                                    <label for="daysRentedPerMonth" class="form-label fw-semibold">
+                                        Days rented per month <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="daysRentedPerMonth"
+                                            name="daysRentedPerMonth" min="0" max="31" step="1" inputmode="numeric"
+                                            placeholder="20" required>
+                                        <span class="input-group-text">days</span>
+                                    </div>
+                                    <div class="invalid-feedback">Please enter a value between 0 and 31.</div>
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Revenue Sharing -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Revenue Sharing</legend>
+
+                                <!-- Dealer % -->
+                                <div class="mb-3">
+                                    <label for="dealerRevenueSharePct" class="form-label fw-semibold">
+                                        Dealer revenue share (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="dealerRevenueSharePct"
+                                            name="dealerRevenueSharePct" min="0" max="100" step="0.01"
+                                            inputmode="decimal" placeholder="60" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter 0-100. Dealer % + Azien % must total 100.</div>
+                                </div>
+
+                                <!-- Azien % -->
+                                <div class="mb-3">
+                                    <label for="azienRevenueSharePct" class="form-label fw-semibold">
+                                        Azien revenue share (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="azienRevenueSharePct"
+                                            name="azienRevenueSharePct" min="0" max="100" step="0.01"
+                                            inputmode="decimal" placeholder="40" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter 0-100. Dealer % + Azien % must total 100.</div>
+                                </div>
+
+                                <div id="revShareHint" class="form-text mt-1">
+                                    Dealer % + Azien % must equal 100%.
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Time Horizon & Depreciation -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Time Horizon &amp; Depreciation</legend>
+
+                                <!-- Holding period (years) -->
+                                <div class="mb-3">
+                                    <label for="holdingPeriodYears" class="form-label fw-semibold">
+                                        Holding period (years) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="holdingPeriodYears"
+                                            name="holdingPeriodYears" min="1" max="10" step="1" inputmode="numeric"
+                                            value="3" required>
+                                        <span class="input-group-text">years</span>
+                                    </div>
+                                    <div class="invalid-feedback">Please enter a whole number from 1 to 10.</div>
+                                </div>
+
+                                <!-- Year 1 depreciation (%) -->
+                                <div class="mb-3">
+                                    <label for="depYear1Pct" class="form-label fw-semibold">
+                                        Year 1 depreciation rate (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="depYear1Pct" name="depYear1Pct"
+                                            min="0" max="100" step="0.01" inputmode="decimal" placeholder="20.00"
+                                            required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <!-- Year 2 depreciation (%) -->
+                                <div class="mb-3">
+                                    <label for="depYear2Pct" class="form-label fw-semibold">
+                                        Year 2 depreciation rate (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="depYear2Pct" name="depYear2Pct"
+                                            min="0" max="100" step="0.01" inputmode="decimal" placeholder="15.00"
+                                            required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <!-- Year 3 depreciation (%) -->
+                                <div class="mb-3">
+                                    <label for="depYear3Pct" class="form-label fw-semibold">
+                                        Year 3 depreciation rate (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="depYear3Pct" name="depYear3Pct"
+                                            min="0" max="100" step="0.01" inputmode="decimal" placeholder="10.00"
+                                            required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <div class="form-text">
+                                    Tip: Use your expected yearly % decline (straight-line or your chosen method).
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Insurance & Maintenance -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Insurance &amp; Maintenance</legend>
+
+                                <!-- Annual Insurance (% of IAC) -->
+                                <div class="mb-3">
+                                    <label for="annualInsuranceRatePctOfIac" class="form-label fw-semibold">
+                                        Annual insurance rate (% of IAC) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="annualInsuranceRatePctOfIac"
+                                            name="annualInsuranceRatePctOfIac" min="0" max="100" step="0.01"
+                                            inputmode="decimal" placeholder="5.00" aria-describedby="iacHelp" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div id="iacHelp" class="form-text">IAC = Initial Asset Cost entered above.</div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <!-- Annual Maintenance (% of IAC) -->
+                                <div class="mb-3">
+                                    <label for="annualMaintenanceRatePctOfIac" class="form-label fw-semibold">
+                                        Annual maintenance rate (% of IAC) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="annualMaintenanceRatePctOfIac"
+                                            name="annualMaintenanceRatePctOfIac" min="0" max="100" step="0.01"
+                                            inputmode="decimal" placeholder="7.50" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Resale & Auction -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Resale &amp; Auction</legend>
+
+                                <!-- Final resale bonus (%) -->
+                                <div class="mb-3">
+                                    <label for="finalResaleBonusPct" class="form-label fw-semibold">
+                                        Final resale bonus (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="finalResaleBonusPct"
+                                            name="finalResaleBonusPct" min="0" max="100" step="0.01" inputmode="decimal"
+                                            placeholder="5.00" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <!-- Azien auction commission (%) -->
+                                <div class="mb-3">
+                                    <label for="azienAuctionCommissionPct" class="form-label fw-semibold">
+                                        Azien auction commission (%) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="number" class="form-control" id="azienAuctionCommissionPct"
+                                            name="azienAuctionCommissionPct" min="0" max="100" step="0.01"
+                                            inputmode="decimal" placeholder="2.50" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                    <div class="invalid-feedback">Enter a percentage between 0 and 100.</div>
+                                </div>
+
+                                <div class="form-text">Set percentages for resale incentives and commission (0–100).
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Options (optional) -->
+                            <fieldset class="mb-4">
+                                <legend class="h4 mb-3">Options (optional)</legend>
+
+                                <!-- Email results -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailResults"
+                                        name="emailResults">
+                                    <label class="form-check-label" for="emailResults">
+                                        Email me the results (PDF later)
+                                    </label>
+                                </div>
+
+                                <!-- Save scenario -->
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="saveScenario"
+                                        name="saveScenario">
+                                    <label class="form-check-label" for="saveScenario">
+                                        Save this scenario
+                                    </label>
+                                </div>
+
+                                <!-- Scenario name (optional) -->
+                                <div class="mb-3">
+                                    <label for="scenarioName" class="form-label fw-semibold">
+                                        Scenario name
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="scenarioName"
+                                        name="scenarioName" placeholder="e.g., G-Wagon v2" maxlength="60">
+                                    <div class="form-text">Optional — up to 60 characters.</div>
+                                </div>
+                            </fieldset>
+
+
+                            <!-- Buttons -->
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                                <button type="reset" class="btn btn-outline-secondary btn-lg">Reset</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Calculate</button>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap js Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Enable real-time Bootstrap validation styling -->
+    <script>
+        (() => {
+            'use strict';
+            const form = document.getElementById('membershipForm');
+            if (!form) return;
+
+            // Live per-field feedback
+            form.addEventListener('input', (e) => {
+                const el = e.target;
+                if (!el.matches('.form-control, .form-select')) return;
+                el.classList.toggle('is-invalid', !el.checkValidity());
+                el.classList.toggle('is-valid', el.checkValidity());
+            });
+
+            // Custom rule: Dealer% + Azien% = 100
+            const dealer = document.getElementById('dealerRevenueSharePct');
+            const azien = document.getElementById('azienRevenueSharePct');
+            function validateShares() {
+                const d = parseFloat(dealer?.value);
+                const a = parseFloat(azien?.value);
+                dealer?.setCustomValidity('');
+                azien?.setCustomValidity('');
+                if (Number.isFinite(d) && Number.isFinite(a)) {
+                    const sum = +(d + a).toFixed(2);  // tolerate 2dp rounding
+                    if (sum !== 100) {
+                        const msg = 'Dealer % + Azien % must equal 100%.';
+                        dealer.setCustomValidity(msg);
+                        azien.setCustomValidity(msg);
+                    }
+                }
+            }
+            dealer?.addEventListener('input', validateShares);
+            azien?.addEventListener('input', validateShares);
+
+            // On submit: enforce all rules & show Bootstrap feedback
+            form.addEventListener('submit', (e) => {
+                validateShares();
+                if (!form.checkValidity()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
