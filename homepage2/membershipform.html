@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Membership Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- NAVBAR -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-50">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-5" href="#">
+
+                    <img src="azien_logo.png" alt="Azien" height="28">
+                    Azien Luxury Club
+                    <img src="logo_word.svg" alt="Azien" height="28">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#fleet">Fleet</a></li>
+                        <li class="nav-item"><a class="nav-link" href="membershipform.html">Membership Form</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="profitcalculator.html">Profit
+                                Calculator Form</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                    <a class="btn btn-primary ms-lg-3" href="/apply">Join Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+<body class="bg-white" style="
+  min-height:100vh;
+  background: url('Azien-Luxury-Club-P1.png') center / cover no-repeat #0b0f16;
+">
+
+    <!-- body class="bg-light" -->
+    <main class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <!-- Controls total form width -->
+            <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6">
+                <h1 class="text-center bg-primary-subtle py-3 mb-4 rounded-3 shadow-sm">
+                    Membership Form
+                </h1>
+
+                <form action="membership_process.php" method="post" id="membershipForm"
+                    class="p-4 border rounded-3 bg-info-subtle shadow-sm needs-validation" novalidate>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10">
+
+                            <!-- First name -->
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label fw-semibold">
+                                    First name <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="firstName" name="firstName"
+                                    placeholder="e.g., Joe" autocomplete="given-name"
+                                    pattern="^[A-Za-z][A-Za-z\s'\-]{1,99}$" required>
+                                <div class="invalid-feedback">Please enter a valid first name.</div>
+                            </div>
+
+                            <!-- Last name -->
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label fw-semibold">
+                                    Last name <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="lastName" name="lastName"
+                                    placeholder="e.g., Smith" autocomplete="family-name"
+                                    pattern="^[A-Za-z][A-Za-z\s'\-]{1,99}$" required>
+                                <div class="invalid-feedback">Please enter a valid last name.</div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">
+                                    Email address <span class="text-danger">*</span>
+                                </label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                    placeholder="name@example.com" autocomplete="email" inputmode="email"
+                                    autocapitalize="off" spellcheck="false" required>
+                                <div class="invalid-feedback">Please provide a valid email address.</div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-3">
+                                <label for="phone" class="form-label fw-semibold">
+                                    Phone number <span class="text-danger">*</span>
+                                </label>
+                                <input type="tel" class="form-control form-control-lg" id="phone" name="phone"
+                                    placeholder="+64 7xx xxx xxx" autocomplete="tel" inputmode="tel"
+                                    pattern="^[0-9\+\(\)\-\.\s]{5,39}$" aria-describedby="phoneHelp" required>
+                                <div id="phoneHelp" class="form-text">Use digits, spaces, +, ( ), - or .</div>
+                                <div class="invalid-feedback">Please enter a valid phone number (6-20 characters).</div>
+                            </div>
+
+                            <!-- Membership type -->
+                            <div class="mb-3">
+                                <label for="memberType" class="form-label fw-semibold">
+                                    Membership type <span class="text-danger">*</span>
+                                </label>
+                                <select id="memberType" name="memberType" class="form-select form-select-lg" required>
+                                    <option value="" selected disabled>-- Select type --</option>
+                                    <option value="access">Access Member (Rent Cars)</option>
+                                    <option value="asset_owner">Asset Owner (Provide Cars)</option>
+                                    <option value="dealer">Dealer (Provide Cars)</option>
+                                </select>
+                                <div class="invalid-feedback">Please choose a membership type.</div>
+                            </div>
+
+                            <!-- Membership tier -->
+                            <div class="mb-3">
+                                <label for="memberTier" class="form-label fw-semibold">
+                                    Membership tier <span class="text-danger">*</span>
+                                </label>
+                                <select id="memberTier" name="memberTier" class="form-select form-select-lg" required>
+                                    <option value="" selected disabled>-- Select tier --</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="plus">Plus</option>
+                                    <option value="premium">Premium</option>
+                                </select>
+                                <div class="invalid-feedback">Please choose a membership tier.</div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="d-grid d-sm-flex justify-content-sm-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap js Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Enable real-time Bootstrap validation styling -->
+    <script>
+        (() => {
+            const form = document.querySelector('.needs-validation');
+            form?.addEventListener('input', e => {
+                const el = e.target;
+                if (!el.matches('.form-control, .form-select')) return;
+                el.classList.toggle('is-invalid', !el.checkValidity());
+                el.classList.toggle('is-valid', el.checkValidity());
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
